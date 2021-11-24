@@ -5,6 +5,7 @@ describe('Account', () => {
     const account = new Account;
     expect(account.transactions).toEqual([]);
   })
+
   describe('deposit()', () => {
     it('should allow user to create a deposit transaction', () => {
       const account = new Account;
@@ -15,6 +16,21 @@ describe('Account', () => {
           date: transactionDate,
           type: 'credit',
           ammount: 100
+        }
+      ]);
+    })
+  })
+
+  describe('withdrawal()', () => {
+    it('should allow user to create a withdrawal transaction', () => {
+      const account = new Account;
+      transactionDate = new Date(2021 - 11 - 5);
+      account.withdrawal(500, transactionDate);
+      expect(account.transactions).toEqual([
+        {
+          date: transactionDate,
+          type: 'debit',
+          ammount: 500
         }
       ]);
     })
