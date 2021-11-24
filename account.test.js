@@ -9,11 +9,11 @@ describe('Account', () => {
   describe('deposit()', () => {
     it('should allow user to create a deposit transaction', () => {
       const account = new Account;
-      transactionDate = new Date(2021 - 11 - 1);
+      transactionDate = '10-01-2023';
       account.deposit(100, transactionDate);
       expect(account.transactions).toEqual([
         {
-          date: transactionDate,
+          date: new Date('2023-09-30T23:00:00.000Z'),
           ammount: 100
         }
       ]);
@@ -23,11 +23,11 @@ describe('Account', () => {
   describe('withdrawal()', () => {
     it('should allow user to create a withdrawal transaction', () => {
       const account = new Account;
-      transactionDate = new Date(2021 - 11 - 5);
+      transactionDate = '10-01-2023';
       account.withdrawal(500, transactionDate);
       expect(account.transactions).toEqual([
         {
-          date: transactionDate,
+          date: new Date('2023-09-30T23:00:00.000Z'),
           ammount: -500
         }
       ]);
@@ -46,6 +46,14 @@ describe('Account', () => {
       ]
       expect(account.getStatement()).toEqual(expectedOutput);
       expect(console.log).toHaveBeenCalledWith(expectedOutput);
+    })
+  })
+
+  describe('createDate()', () => {
+    it('should create a date object from unformatted date', () => {
+      const account = new Account;
+      transactionDate = '2023-10-1';
+      expect(account.createDate(transactionDate)).toEqual(new Date('2023-09-30T23:00:00.000Z'));
     })
   })
 })

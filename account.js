@@ -4,14 +4,14 @@ class Account {
   }
   deposit(ammount, date) {
     this.transactions.push({
-      date: date,
+      date: this.createDate(date),
       ammount: ammount
     })
   }
 
   withdrawal(ammount, date) {
     this.transactions.push({
-      date: date,
+      date: this.createDate(date),
       ammount: -ammount
     })
   }
@@ -47,6 +47,11 @@ class Account {
   getNewBalance(currentBalance, transaction) {
     return currentBalance + transaction
   }
+
+  createDate(date) {
+    return new Date(date);
+  }
+
 }
 
 module.exports = Account;
