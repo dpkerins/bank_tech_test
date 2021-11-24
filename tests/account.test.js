@@ -1,4 +1,4 @@
-const Account = require('./account')
+const Account = require('../account')
 
 describe('Account', () => {
   it('should initialize with an empty transactions array', () => {
@@ -7,16 +7,11 @@ describe('Account', () => {
   })
 
   describe('deposit()', () => {
-    it('should allow user to create a deposit transaction', () => {
+    it('should allow user to add a new deposit to their transactions array', () => {
       const account = new Account;
       transactionDate = '10-01-2023';
       account.deposit(100, transactionDate);
-      expect(account.transactions).toEqual([
-        {
-          date: new Date('2023-09-30T23:00:00.000Z'),
-          ammount: 100
-        }
-      ]);
+      expect(account.transactions.length).toEqual(1);
     })
   })
 
@@ -25,12 +20,7 @@ describe('Account', () => {
       const account = new Account;
       transactionDate = '10/1/23';
       account.withdrawal(500, transactionDate);
-      expect(account.transactions).toEqual([
-        {
-          date: new Date('2023-09-30T23:00:00.000Z'),
-          ammount: -500
-        }
-      ]);
+      expect(account.transactions.length).toEqual(1);
     })
   })
 

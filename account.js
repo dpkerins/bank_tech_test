@@ -1,12 +1,11 @@
+const Deposit = require('./deposit');
+
 class Account {
   constructor() {
     this.transactions = [];
   }
   deposit(ammount, date) {
-    this.transactions.push({
-      date: this.createDate(date),
-      ammount: ammount
-    })
+    this.transactions.push(new Deposit(ammount, this.createDate(date)));
   }
 
   withdrawal(ammount, date) {
