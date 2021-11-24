@@ -9,17 +9,17 @@ describe('Account', () => {
   describe('deposit()', () => {
     it('should allow user to add a new deposit to their transactions array', () => {
       const account = new Account;
-      transactionDate = '10-01-2023';
+      transactionDate = '10/1/23';
       account.deposit(100, transactionDate);
       expect(account.transactions.length).toEqual(1);
     })
   })
 
-  describe('withdrawal()', () => {
-    it('should allow user to create a withdrawal transaction', () => {
+  describe('withdraw()', () => {
+    it('should allow user to add a new withdrawal to their transactions array', () => {
       const account = new Account;
       transactionDate = '10/1/23';
-      account.withdrawal(500, transactionDate);
+      account.withdraw(500, transactionDate);
       expect(account.transactions.length).toEqual(1);
     })
   })

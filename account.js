@@ -1,4 +1,5 @@
 const Deposit = require('./deposit');
+const Withdrawal = require('./withdrawal');
 
 class Account {
   constructor() {
@@ -8,11 +9,8 @@ class Account {
     this.transactions.push(new Deposit(ammount, this.createDate(date)));
   }
 
-  withdrawal(ammount, date) {
-    this.transactions.push({
-      date: this.createDate(date),
-      ammount: -ammount
-    })
+  withdraw(ammount, date) {
+    this.transactions.push(new Withdrawal(ammount, this.createDate(date)));
   }
 
   getStatement() {
