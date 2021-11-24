@@ -1,6 +1,6 @@
 class Withdrawal {
   constructor(ammount, date) {
-    this.ammount = ammount;
+    this.ammount = -ammount;
     this.date = date;
   }
 }

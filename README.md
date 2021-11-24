@@ -32,7 +32,26 @@ date || credit || debit || balance
 10/01/2023 || 1000.00 || || 1000.00
 ```
 
-## Self-assessment
+## How To Use
+*clone this repository
+*in the command line run these commands to get started:
+```
+node
+.load account.js
+account = new Account;
+```
+*You should now be able to run the methods account.withdraw(num, 'date'), deposit(num, 'date') and getStatement on account as seen below. Note: the date must be in a string, ie: '1/1/24'.
 
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
+## Process
+*TDD was used to build this using Jest for testing. 
+*An Account class was built first, containing all of the methods and variables. 
+*The Account class was refactored to extract the Withdrawal and Deposit classes.
+
+## Next Steps
+*I would mock the test so that the testing on the 3 classes was not interdependent. 
+*I would add functionality so that the transactions appear in reverse order in the statement by date. 
+*I would add tests and code to find edge cases, ie withdrawal without proper funs, etc. 
+
+
+
 
