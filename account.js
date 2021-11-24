@@ -15,13 +15,11 @@ class Account {
 
   getStatement() {
     let balance = 0;
-    let statement = ['date || credit || debit || balance'];
+    console.log(['date || credit || debit || balance']);
     this.transactions.forEach(transaction => {
       balance = this.getNewBalance(balance, transaction.ammount)
-      statement.push(`${this.getDate(transaction.date)} || ${this.getCreditAmmount(transaction.ammount)} || ${this.getDebitAmmount(transaction.ammount)} || ${balance}`);
+      console.log(`${this.getDate(transaction.date)} || ${this.getCreditAmmount(transaction.ammount)} || ${this.getDebitAmmount(transaction.ammount)} || ${balance}`);
     })
-    console.log(statement);
-    return statement;
   }
 
   getDebitAmmount(ammount) {

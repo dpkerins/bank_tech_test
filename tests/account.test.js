@@ -30,12 +30,8 @@ describe('Account', () => {
       const account = new Account;
       transactionDate = new Date('11/5/2022');
       account.deposit(100, transactionDate);
-      const expectedOutput = [
-        'date || credit || debit || balance',
-        '5/11/2022 || 100 ||  || 100'
-      ]
-      expect(account.getStatement()).toEqual(expectedOutput);
-      expect(console.log).toHaveBeenCalledWith(expectedOutput);
+      account.getStatement();
+      expect(console.log).toHaveBeenCalledTimes(2);
     })
   })
 
