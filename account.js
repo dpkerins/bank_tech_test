@@ -21,7 +21,7 @@ class Account {
     let statement = ['date || credit || debit || balance'];
     this.transactions.forEach(transaction => {
       balance = this.getNewBalance(balance, transaction.ammount)
-      statement.push(`${transaction.date} || ${this.getCreditAmmount(transaction.ammount)} || ${this.getDebitAmmount(transaction.ammount)} || ${balance}`);
+      statement.push(`${this.getDate(transaction.date)} || ${this.getCreditAmmount(transaction.ammount)} || ${this.getDebitAmmount(transaction.ammount)} || ${balance}`);
     })
     console.log(statement);
     return statement;
@@ -50,6 +50,10 @@ class Account {
 
   createDate(date) {
     return new Date(date);
+  }
+
+  getDate(date) {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   }
 
 }

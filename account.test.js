@@ -23,7 +23,7 @@ describe('Account', () => {
   describe('withdrawal()', () => {
     it('should allow user to create a withdrawal transaction', () => {
       const account = new Account;
-      transactionDate = '10-01-2023';
+      transactionDate = '10/1/23';
       account.withdrawal(500, transactionDate);
       expect(account.transactions).toEqual([
         {
@@ -38,11 +38,11 @@ describe('Account', () => {
     it('should allow user to view a statement of their transactions and balances', () => {
       console.log = jest.fn();
       const account = new Account;
-      transactionDate = new Date(2021 - 11 - 5);
+      transactionDate = new Date('11/5/2022');
       account.deposit(100, transactionDate);
       const expectedOutput = [
         'date || credit || debit || balance',
-        'Thu Jan 01 1970 01:00:02 GMT+0100 (Greenwich Mean Time) || 100 ||  || 100'
+        '5/11/2022 || 100 ||  || 100'
       ]
       expect(account.getStatement()).toEqual(expectedOutput);
       expect(console.log).toHaveBeenCalledWith(expectedOutput);
