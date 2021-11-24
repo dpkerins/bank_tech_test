@@ -14,7 +14,6 @@ describe('Account', () => {
       expect(account.transactions).toEqual([
         {
           date: transactionDate,
-          type: 'credit',
           ammount: 100
         }
       ]);
@@ -29,8 +28,7 @@ describe('Account', () => {
       expect(account.transactions).toEqual([
         {
           date: transactionDate,
-          type: 'debit',
-          ammount: 500
+          ammount: -500
         }
       ]);
     })

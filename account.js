@@ -5,15 +5,13 @@ class Account {
   deposit(ammount, date) {
     this.transactions.push({
       date: date,
-      ammount: ammount,
-      type: 'credit'
+      ammount: ammount
     })
   }
   withdrawal(ammount, date) {
     this.transactions.push({
       date: date,
-      ammount: ammount,
-      type: 'debit'
+      ammount: -ammount
     })
   }
 }
