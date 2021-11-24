@@ -40,6 +40,7 @@ describe('Account', () => {
       transactionDate = new Date(2021 - 11 - 5);
       account.deposit(100, transactionDate);
       expect(account.getStatement()).toEqual([
+        'date || credit || debit || balance',
         'Thu Jan 01 1970 01:00:02 GMT+0100 (Greenwich Mean Time) || 100 ||  || 100'
       ]);
     })
